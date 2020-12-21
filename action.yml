@@ -1,16 +1,24 @@
-name: 'Resharper InspectCode'
-author: 'Nick Badal'
-description: 'An action that runs the InspectCode CLI utility from JetBrains'
+name: "Resharper InspectCode"
+author: "Nick Badal"
+description: "An action that runs the InspectCode CLI utility from JetBrains"
 branding:
-    icon: 'bar-chart'
-    color: 'blue'
+  icon: "bar-chart"
+  color: "blue"
 inputs:
-    solution:
-        description: 'Path to your solution file, ex: MyProject.sln'
-        required: true
+  solution:
+    description: "Path to your solution file, ex: MyProject.sln"
+    required: true
+  settings:
+    description: "Path to your dotsettings file, ex: MyProject.DotSettings"
+    required: false
+  files:
+    description: "Path to your files to analyze, ex: Interactor.cs"
+    required: false
 runs:
-    using: 'docker'
-    image: 'Dockerfile'
-    args:
-        - ${{ inputs.solution }}
-        - '-o=report.xml'
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.solution }}
+    - "-o=report.xml"
+    - "--profile=${{ inputs.settings }}"
+    - "--include=${{ inputs.files }}"
