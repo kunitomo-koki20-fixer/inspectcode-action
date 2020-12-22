@@ -17,7 +17,6 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  pre-entrypoint: "dotnet build ${{ inputs.solution }}"
   args:
     - ${{ inputs.solution }}
     - "-o=report.xml"

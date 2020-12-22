@@ -10,6 +10,7 @@ RUN curl -sf -o resharper-cli.zip -L "https://download.jetbrains.com/resharper/d
     && mkdir -p /resharper \
     && apt-get -y install unzip \
     && unzip resharper-cli.zip -d /resharper \
-    && rm resharper-cli.zip
+    && rm resharper-cli.zip \
+    && chmod +x entrypoint.sh
 
-ENTRYPOINT [ "/resharper/inspectcode.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
