@@ -6,8 +6,6 @@ RUN apt-get update -y && \
     apt-get -y autoremove && \
     apt-get clean
 
-RUN dotnet build
-
 RUN curl -sf -o resharper-cli.zip -L "https://download.jetbrains.com/resharper/dotUltimate.2020.3/JetBrains.ReSharper.CommandLineTools.2020.3.zip" \
     && mkdir -p /resharper \
     && apt-get -y install unzip \
