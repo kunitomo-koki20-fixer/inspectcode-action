@@ -9,8 +9,8 @@ RUN apt-get update -y && \
 RUN curl -sf -o resharper-cli.zip -L "https://download.jetbrains.com/resharper/dotUltimate.2020.3/JetBrains.ReSharper.CommandLineTools.2020.3.zip" \
     && mkdir -p /resharper \
     && apt-get -y install unzip \
-    && unzip resharper-cli.zip -d /resharper \
+    && unzip -q resharper-cli.zip -d /resharper \
     && rm resharper-cli.zip \
-    && chmod +x entrypoint.sh
+    && chmod +x /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
