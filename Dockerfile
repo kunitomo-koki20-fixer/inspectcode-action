@@ -12,4 +12,6 @@ RUN curl -sf -o resharper-cli.zip -L "https://download.jetbrains.com/resharper/d
     && unzip -q resharper-cli.zip -d /resharper \
     && rm resharper-cli.zip
 
+COPY entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT [ "/entrypoint.sh" ]
