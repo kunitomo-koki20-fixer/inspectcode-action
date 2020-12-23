@@ -14,6 +14,9 @@ inputs:
   files:
     description: "Path to your files to analyze, ex: Interactor.cs"
     required: false
+  projects:
+    description: "list of projects to build"
+    required: false
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -22,3 +25,4 @@ runs:
     - "-o=report.xml"
     - "--profile=${{ inputs.settings }}"
     - "--include=${{ inputs.files }}"
+    - "${{ inputs.projects }}"
